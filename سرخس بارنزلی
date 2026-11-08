@@ -1,0 +1,32 @@
+import turtle as t
+from random import random
+
+t.colormode(255)
+t.speed(0)
+t.tracer(0)
+t.hideturtle()
+t.penup()
+t.bgcolor("black")
+
+x, y = 0, 0
+scale = 55     
+shift_y = -250   
+
+for i in range(50000):
+    r = random()
+    if r < 0.01:                     
+        x, y = 0, 0.16 * y
+    elif r < 0.86:             
+        x, y = 0.85 * x + 0.04 * y, -0.04 * x + 0.85 * y + 1.6
+    elif r < 0.93:                   
+        x, y = 0.2 * x - 0.26 * y, 0.23 * x + 0.22 * y + 1.6
+    else:                         
+        x, y = -0.15 * x + 0.28 * y, 0.26 * x + 0.24 * y + 0.44
+
+    t.goto(x * scale, y * scale + shift_y)
+    t.dot(2, "lime green")
+    if i % 1000 == 0:
+        t.update()
+
+t.update()
+t.done()
