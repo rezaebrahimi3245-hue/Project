@@ -1,0 +1,47 @@
+#draw a coral reef
+from turtle import *
+from random import random
+
+hideturtle()
+tracer(0)
+bgcolor('black')
+color('cyan')
+speed(0)
+penup()
+
+def f1(x,y):
+    a = ((0.31*x) - (0.53*y) + 0.89) 
+    b = ((-0.46*x) - (0.29*y) + 1.04) 
+    return a,b
+
+def f2(x,y):
+    a = ((0.31*x) - (0.08*y) + 0.22) 
+    b = ((0.15*x) - (0.45*y) + 0.34) 
+    return a,b
+
+def f3(x,y):
+    a = ((0.55*y) + 0.01) 
+    b = ((0.69*x) - (0.20*y) + 0.38) 
+    return a,b
+
+x = 0
+y = 0
+
+for n in range(100000):
+    i = random()
+
+    if i < 0.4 :
+        x,y = f1(x,y)
+    elif i >= 0.4 and i < 0.55 :
+        x,y = f2(x,y)
+    elif i >= 0.55 :
+        x,y = f3(x,y)
+
+    Screen_x = x*500 -250
+    Screen_y = y*500 -250
+    goto(Screen_x,Screen_y)
+    dot(2)
+    
+print("Done!")
+update()
+exitonclick()
