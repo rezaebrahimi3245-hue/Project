@@ -1,0 +1,16 @@
+import turtle as t
+from random import random
+
+t.colormode(255)
+
+for i in range(100):
+    steps = int(random() * 100)
+    angle = int(random() * 360)
+    r = int(random() * 256)
+    g = int(random() * 256)
+    b = int(random() * 256)
+    t.pencolor(r, g, b)
+    t.right(angle)
+    t.fd(steps)
+
+t.done()
