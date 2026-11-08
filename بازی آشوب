@@ -1,0 +1,26 @@
+import turtle as t
+from random import choice
+
+t.speed(0)
+t.tracer(0)       
+t.penup()
+
+
+A = (-250, -200)
+B = (250, -200)
+C = (0, 230)
+vertices = [A, B, C]
+
+x, y = 0, 0
+
+for i in range(20000):
+    vx, vy = choice(vertices)
+    x = (x + vx) / 2           
+    y = (y + vy) / 2
+    t.goto(x, y)
+    t.dot(2, "black")  
+    if i % 100 == 0:
+        t.update()
+
+t.update()
+t.done()
