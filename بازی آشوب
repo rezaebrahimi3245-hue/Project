@@ -2,23 +2,24 @@ import turtle as t
 from random import choice
 
 t.speed(0)
-t.tracer(0)       
+t.tracer(0)
+t.hideturtle()
 t.penup()
 
-
-A = (-250, -200)
-B = (250, -200)
-C = (0, 230)
-vertices = [A, B, C]
+vertices = [
+    ((-250, -200), "green"),
+    ((250, -200), "gold"),
+    ((0, 230), "red"),
+]
 
 x, y = 0, 0
 
 for i in range(20000):
-    vx, vy = choice(vertices)
-    x = (x + vx) / 2           
+    (vx, vy), color = choice(vertices)
+    x = (x + vx) / 2
     y = (y + vy) / 2
     t.goto(x, y)
-    t.dot(2, "black")  
+    t.dot(2, color)
     if i % 100 == 0:
         t.update()
 
